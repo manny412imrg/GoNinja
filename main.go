@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 func main() {
 
@@ -82,4 +86,48 @@ func main() {
 	fmt.Println(rangeThree)
 	rangeOne = append(rangeOne, "koopa")
 	fmt.Println(rangeOne)
+	//clase 6 manejo de paquetes ("fmt" "strings")
+	greeting := "hello there friends!"
+
+	fmt.Println(strings.Contains(greeting, "hello!"))
+	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
+	fmt.Println(strings.ToUpper(greeting))
+	fmt.Println(strings.Index(greeting, "ll"))
+	fmt.Println(strings.Split(greeting, " "))
+
+	//original value is unchanged
+	fmt.Println("original string value =", greeting)
+
+	//packet sort
+	agesNew := []int{45, 20, 35, 30, 75, 60, 50, 25, 5}
+	sort.Ints(agesNew)
+	fmt.Println(agesNew)
+	index := sort.SearchInts(agesNew, 90)
+	fmt.Println(index)
+	namesMario := []string{"Mario", "Luigi", "Peach", "Bowser", "Ark"}
+	sort.Strings(namesMario)
+	fmt.Println(namesMario)
+	fmt.Println(sort.SearchStrings(namesMario, "Bowser"))
+
+	//Loops
+
+	x := 0
+	for x < 5 {
+		fmt.Println("values of x is:", x)
+		x++
+	}
+	for i := 0; i < 5; i++ {
+		fmt.Println("values of x is:", i)
+	}
+	/*for i := 0; i <= len(namesMario); i++ {
+		fmt.Println("Pj are:", namesMario[i])
+	}*/
+
+	for _, value := range namesMario {
+		fmt.Printf("the value is %v \n", value)
+		value = "new string"
+	}
+
+	fmt.Println(names)
+
 }
